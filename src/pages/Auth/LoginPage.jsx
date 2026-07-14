@@ -3,8 +3,8 @@ import Button from "../../components/common/Button.jsx";
 import InputField from "../../components/common/InputField.jsx";
 import { useState } from "react";
 import CheckBoxField from "../../components/common/CheckBoxField.jsx";
-import AuthCard from "./AuthCard.jsx";
-import BrandSection from "./BrandSection.jsx";
+import AuthCard from "./component/AuthCard.jsx";
+import BrandSection from "./component/BrandSection.jsx";
 
 function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -19,7 +19,7 @@ function LoginPage() {
         subtitle={
           "Access the world's most efficient logistics network today. Join thousands of merchants scaling their businesses globally."
         }
-      ></BrandSection>
+      />
 
       {/* Right Side: Login Form */}
       <AuthCard
@@ -33,7 +33,7 @@ function LoginPage() {
             label={"Email"}
             type={"email"}
             isRequired={true}
-          ></InputField>
+          />
 
           {/* Password Field */}
           <div>
@@ -57,7 +57,7 @@ function LoginPage() {
                 id={"password"}
                 type={showPassword ? "text" : "password"}
                 isRequired={true}
-              ></InputField>
+              />
 
               <button
                 type="button"
@@ -107,7 +107,7 @@ function LoginPage() {
           <CheckBoxField
             isRequired={true}
             label={"Remember for 30 days"}
-          ></CheckBoxField>
+          />
 
           {/* Submit Button */}
           <Button size="lg" type="submit">

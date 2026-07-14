@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import BrandSection from "./BrandSection.jsx";
-import AuthCard from "./AuthCard.jsx";
+import BrandSection from "./component/BrandSection.jsx";
+import AuthCard from "./component/AuthCard.jsx";
 import InputField from "../../components/common/InputField.jsx";
 import CheckBoxField from "../../components/common/CheckBoxField.jsx";
 import Button from "../../components/common/Button.jsx";
@@ -15,7 +15,7 @@ export default function RegisterPage() {
         subtitle={
           "Join the world's most efficient marketplace ecosystem. Streamline your operations, reach global customers, and manage your inventory with precision."
         }
-      ></BrandSection>
+      />
 
       {/* Right Side: Register Form */}
       <AuthCard
@@ -31,7 +31,7 @@ export default function RegisterPage() {
             type={"text"}
             id={"fullName"}
             isRequired={true}
-          ></InputField>
+          />
 
           {/* Email Address */}
 
@@ -40,7 +40,7 @@ export default function RegisterPage() {
             label={"Email Address"}
             type={"email"}
             isRequired={true}
-          ></InputField>
+          />
 
           {/* Phone Number */}
           <div>
@@ -49,7 +49,7 @@ export default function RegisterPage() {
               label={"Phone"}
               type={"number"}
               isRequired={true}
-            ></InputField>
+            />
           </div>
 
           {/* Password Grid */}
@@ -60,16 +60,18 @@ export default function RegisterPage() {
                 label={"Password"}
                 placeholder={"••••••••"}
                 id={"password"}
+                type="password"
                 isRequired={true}
-              ></InputField>
+              />
             </div>
             <div>
               <InputField
                 label={"Confirm Password"}
                 placeholder={"••••••••"}
+                type="password"
                 id={"confirmPassword"}
                 isRequired={true}
-              ></InputField>
+              />
             </div>
           </div>
 

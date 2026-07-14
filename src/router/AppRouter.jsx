@@ -1,20 +1,41 @@
 import { createBrowserRouter } from "react-router-dom";
-import Home from "../pages/Home/HomePage.jsx";
-import Login from "../pages/Auth/LoginPage.jsx";
-import Register from "../pages/Auth/RegisterPage.jsx";
+
+import HomePage from "../pages/home/HomePage.jsx";
+import LoginPage from "../pages/auth/LoginPage.jsx";
+import DashboardPage from "../pages/dashboard/DashboardPage.jsx";
+import RegisterPage from "../pages/auth/RegisterPage.jsx";
+import ProfilePage from "../pages/user/ProfilePage.jsx";
+import ChangePasswordPage from "../pages/user/ChangePasswordPage.jsx";
+import FormAddress from "../pages/user/FormAddressPage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home></Home>,
+    element: <HomePage />,
   },
   {
     path: "/login",
-    element: <Login></Login>,
+    element: <LoginPage />,
   },
   {
     path: "/register",
-    element: <Register></Register>,
+    element: <RegisterPage />,
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardPage />,
+  },
+  {
+    path: "/profile",
+    element: <ProfilePage />,
+  },
+  {
+    path: "/profile/change-password",
+    element: <ChangePasswordPage />,
+  },
+  {
+    path: "/profile/form-address",
+    element: <FormAddress />,
   },
 ]);
 
