@@ -1,11 +1,11 @@
 import { MapPin } from "lucide-react";
-import Card from "../../components/common/Card.jsx";
-import Copyright from "../../components/layout/Copyright.jsx";
-import Navbar from "../../components/layout/Navbar.jsx";
-import InputField from "../../components/common/InputField.jsx";
+import Card from "../../../components/common/Card.jsx";
+import Copyright from "../../../components/layout/Copyright.jsx";
+import Navbar from "../../../components/layout/Navbar.jsx";
+import InputField from "../../../components/common/InputField.jsx";
 import { Link } from "react-router-dom";
-import Button from "../../components/common/Button.jsx";
-import SelectField from "../../components/common/SelectField.jsx";
+import Button from "../../../components/common/Button.jsx";
+import SelectField from "../../../components/common/SelectField.jsx";
 
 export default function FormAddress() {
   return (

@@ -1,6 +1,6 @@
 import { ChevronRight, Lock, ShieldCheck } from "lucide-react";
 import { Link } from "react-router-dom";
-import Card from "../../../components/common/Card.jsx";
+import Card from "../../../../components/common/Card.jsx";
 
 export default function Security() {
   return (

@@ -5,9 +5,10 @@ import {
   Package,
   Receipt,
 } from "lucide-react";
-import Card from "../../../components/common/Card.jsx";
+import Card from "../../../../components/common/Card.jsx";
+import { Link } from "react-router-dom";
 
-export default function RecentOrderCard({ recentOrders }) {
+export default function RecentOrders({ recentOrders }) {
   return (
     <Card>
       <div className="flex justify-between items-center mb-8">
@@ -17,9 +18,12 @@ export default function RecentOrderCard({ recentOrders }) {
           </div>
           <h2 className="font-bold text-lg text-slate-900">Recent Orders</h2>
         </div>
-        <button className="text-sm font-bold text-[#00aa5b] hover:underline flex items-center gap-1">
+        <Link
+          to={"/profile/recent-orders"}
+          className="text-sm font-bold text-[#00aa5b] hover:underline flex items-center gap-1"
+        >
           View All <ChevronRight size={16} />
-        </button>
+        </Link>
       </div>
 
       <div className="space-y-6">

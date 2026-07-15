@@ -1,8 +1,8 @@
 import { User } from "lucide-react";
 import { useState } from "react";
-import InputField from "../../../components/common/InputField.jsx";
-import Button from "../../../components/common/Button.jsx";
-import Card from "../../../components/common/Card.jsx";
+import InputField from "../../../../components/common/InputField.jsx";
+import Button from "../../../../components/common/Button.jsx";
+import Card from "../../../../components/common/Card.jsx";
 
 export default function ProfileInfo() {
   const [isEditingProfile, setIsEditingProfile] = useState(false);
@@ -28,10 +28,11 @@ export default function ProfileInfo() {
         </div>
         <button
           onClick={() => handleEditingProfile()}
-          className={`text-sm font-bold hover:underline transition-colors ${isEditingProfile
+          className={`text-sm font-bold hover:underline transition-colors ${
+            isEditingProfile
               ? "text-rose-600 hover:text-rose-700" // Warna saat True (Cancel)
               : "text-[#00aa5b] hover:text-[#008f4c]" // Warna saat False (Edit)
-            }`}
+          }`}
         >
           {isEditingProfile ? "Cancel" : "Edit"}
         </button>

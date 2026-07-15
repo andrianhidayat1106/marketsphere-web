@@ -1,12 +1,11 @@
-import Navbar from "../../components/layout/Navbar.jsx";
+import Navbar from "../../../components/layout/Navbar.jsx";
 import Security from "./component/Security.jsx";
 import ProfileInfo from "./component/ProfileInfo.jsx";
 import SavedAddress from "./component/SavedAddress.jsx";
-import Copyright from "../../components/layout/Copyright.jsx";
-import RecentOrder from "./component/RecentOrder.jsx";
+import Copyright from "../../../components/layout/Copyright.jsx";
+import RecentOrders from "./component/RecentOrders.jsx";
 
 const ProfilePage = () => {
-
   const addresses = [
     {
       id: 1,
@@ -77,7 +76,7 @@ const ProfilePage = () => {
               {/* Saved Addresses Section */}
               <SavedAddress addresses={addresses} />
               {/* Recent Orders Section */}
-              <RecentOrder recentOrders={recentOrders} />
+              <RecentOrders recentOrders={recentOrders} />
             </div>
           </div>
         </main>

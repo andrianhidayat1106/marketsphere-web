@@ -19,6 +19,7 @@ export default function Button({
     danger: "bg-red-500 hover:bg-red-600 text-white shadow-red-500/20",
     secondary:
       "bg-slate-100 hover:bg-slate-200 text-slate-700 shadow-none border border-slate-200",
+    blue: "bg-blue-600 hover:bg-blue-700 text-white shadow-blue-600/20",
   };
 
   const baseStyle =

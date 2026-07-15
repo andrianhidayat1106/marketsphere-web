@@ -1,13 +1,12 @@
 import { ShieldCheck } from "lucide-react";
-import Navbar from "../../components/layout/Navbar.jsx";
-import Copyright from "../../components/layout/Copyright.jsx";
-import Card from "../../components/common/Card.jsx";
-import InputField from "../../components/common/InputField.jsx";
-import Button from "../../components/common/Button.jsx";
+import Navbar from "../../../components/layout/Navbar.jsx";
+import Copyright from "../../../components/layout/Copyright.jsx";
+import Card from "../../../components/common/Card.jsx";
+import InputField from "../../../components/common/InputField.jsx";
+import Button from "../../../components/common/Button.jsx";
 import { Link } from "react-router-dom";
 
 const ChangePasswordPage = () => {
-
   return (
     <>
       <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
