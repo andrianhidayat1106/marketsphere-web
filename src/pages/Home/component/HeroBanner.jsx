@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function HeroBanner() {
   return (
     <section className="relative rounded-3xl overflow-hidden mb-8 aspect-[21/9] bg-slate-900 group">
@@ -13,9 +15,12 @@ export default function HeroBanner() {
         <h1 className="text-5xl font-black mb-6 leading-tight">
           Tech Gadget Mania 50% Off
         </h1>
-        <button className="w-fit bg-[#00aa5b] hover:bg-[#008f4d] text-white font-bold px-8 py-3 rounded-xl transition-all shadow-lg shadow-[#00aa5b]/20 active:scale-95">
+        <Link
+          to="/flash-sale"
+          className="w-fit bg-[#00aa5b] hover:bg-[#008f4d] text-white font-bold px-8 py-3 rounded-xl transition-all shadow-lg shadow-[#00aa5b]/20 active:scale-95"
+        >
           Shop Now
-        </button>
+        </Link>
       </div>
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
         <div className="w-2.5 h-2.5 rounded-full bg-[#00aa5b]"></div>

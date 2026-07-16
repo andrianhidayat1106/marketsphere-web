@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
-import Navbar from "../../components/layout/Navbar.jsx";
-import Footer from "../../components/layout/Footer.jsx";
 import Categories from "./component/Categories.jsx";
 import FlashSale from "./component/FlashSale.jsx";
 import DailyDiscover from "./component/DailyDiscover.jsx";
 import HeroBanner from "./component/HeroBanner.jsx";
 
+/**
+ * HomePage
+ *
+ * Navbar & Footer sudah di-handle oleh MainLayout (lihat AppRouter.jsx).
+ * Halaman ini hanya fokus ke konten utama.
+ */
 export default function HomePage() {
-
   // Countdown timer simulation
   const [timeLeft, setTimeLeft] = useState({
     hours: 2,
@@ -113,23 +116,11 @@ export default function HomePage() {
   ];
 
   return (
-    <>
-      <div className="min-h-screen bg-slate-50 font-sans text-slate-900 pb-20">
-        <Navbar />
-        <main className="max-w-7xl mx-auto px-4 lg:px-8 py-8">
-          <HeroBanner />
-          {/* Categories */}
-          <Categories />
-          {/* Flash Sale */}
-          <FlashSale
-            timeLeft={timeLeft}
-            flashSaleProducts={flashSaleProducts}
-          />
-          {/* Daily Discover */}
-          <DailyDiscover dailyDiscover={dailyDiscover} />
-        </main>
-      </div>
-      <Footer />
-    </>
+    <main className="max-w-7xl mx-auto px-4 lg:px-8 py-8 pb-20">
+      <HeroBanner />
+      <Categories />
+      <FlashSale timeLeft={timeLeft} flashSaleProducts={flashSaleProducts} />
+      <DailyDiscover dailyDiscover={dailyDiscover} />
+    </main>
   );
 }

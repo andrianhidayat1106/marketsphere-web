@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { Search, ShoppingCart, Bell, Zap } from "lucide-react";
+import { useState, useEffect } from "react";
 import FlashSaleHero from "./component/FlashSaleHero.jsx";
 import ProductGrid from "./component/ProductGrid.jsx";
 import ReminderBanner from "./component/ReminderBanner.jsx";
-import Navbar from "../../../components/layout/Navbar.jsx";
-import Footer from "../../../components/layout/Footer.jsx";
+import { formatRupiah } from "../../../utils/formatCurrency.js";
 
+/**
+ * FlashSalePage
+ * Navbar & Footer sudah di-handle oleh MainLayout.
+ */
 const FlashSalePage = () => {
   const [activeSession, setActiveSession] = useState("Berlangsung");
   const [timeLeft, setTimeLeft] = useState({
@@ -14,7 +16,6 @@ const FlashSalePage = () => {
     seconds: 55,
   });
 
-  // Simulasi Countdown Timer
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft((prev) => {
@@ -97,61 +98,44 @@ const FlashSalePage = () => {
     },
   ];
 
-  const formatCurrency = (amount) => {
-    return new Intl.NumberFormat("id-ID", {
-      style: "currency",
-      currency: "IDR",
-      minimumFractionDigits: 0,
-    }).format(amount);
-  };
-
   return (
     <>
-      <div className="min-h-screen bg-slate-50 font-sans text-slate-900 pb-20">
-        {/* Top Navigation */}
-        <Navbar />
+      {/* Hero Banner */}
+      <FlashSaleHero timeLeft={timeLeft} />
 
-        {/* 1. Hero Banner Component */}
-        <FlashSaleHero timeLeft={timeLeft} />
-
-        {/* Session Tabs */}
-        <nav className="bg-white border-b border-slate-100 sticky top-20 z-40">
-          <div className="max-w-7xl mx-auto px-4 lg:px-8">
-            <div className="grid grid-cols-4">
-              {sessions.map((session, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setActiveSession(session.label)}
-                  className={`py-6 flex flex-col items-center gap-1 transition-all relative ${
-                    activeSession === session.label
-                      ? "text-[#00aa5b]"
-                      : "text-slate-400 hover:text-slate-600"
-                  }`}
-                >
-                  <span className="text-sm font-black uppercase tracking-wider">
-                    {session.label}
-                  </span>
-                  <span className="text-[10px] font-bold opacity-60">
-                    {session.time}
-                  </span>
-                  {activeSession === session.label && (
-                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#00aa5b] rounded-full"></div>
-                  )}
-                </button>
-              ))}
-            </div>
+      {/* Session Tabs */}
+      <nav className="bg-white border-b border-slate-100 sticky top-20 z-40">
+        <div className="max-w-7xl mx-auto px-4 lg:px-8">
+          <div className="grid grid-cols-4">
+            {sessions.map((session, idx) => (
+              <button
+                key={idx}
+                onClick={() => setActiveSession(session.label)}
+                className={`py-6 flex flex-col items-center gap-1 transition-all relative ${
+                  activeSession === session.label
+                    ? "text-[#00aa5b]"
+                    : "text-slate-400 hover:text-slate-600"
+                }`}
+              >
+                <span className="text-sm font-black uppercase tracking-wider">
+                  {session.label}
+                </span>
+                <span className="text-[10px] font-bold opacity-60">
+                  {session.time}
+                </span>
+                {activeSession === session.label && (
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#00aa5b] rounded-full"></div>
+                )}
+              </button>
+            ))}
           </div>
-        </nav>
+        </div>
+      </nav>
 
-        <main className="max-w-7xl mx-auto px-4 lg:px-8 py-12">
-          {/* 2. Product Grid Component */}
-          <ProductGrid products={products} formatCurrency={formatCurrency} />
-
-          {/* 3. Reminder Banner Component */}
-          <ReminderBanner />
-        </main>
-      </div>
-      <Footer />
+      <main className="max-w-7xl mx-auto px-4 lg:px-8 py-12 pb-20">
+        <ProductGrid products={products} formatCurrency={formatRupiah} />
+        <ReminderBanner />
+      </main>
     </>
   );
 };

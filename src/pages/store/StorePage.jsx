@@ -11,6 +11,7 @@ import {
   ChevronRight,
   ArrowRight,
 } from "lucide-react";
+import { formatRupiah } from "../../utils/formatCurrency.js";
 
 /**
  * MarketSphere Store Profile Component
@@ -19,24 +20,6 @@ import {
 const StorePage = () => {
   const [activeTab, setActiveTab] = useState("Home");
 
-  const vouchers = [
-    {
-      id: 1,
-      type: "Fixed",
-      amount: "$10",
-      offText: "OFF",
-      minSpend: 100,
-      expiry: "30 Oct",
-    },
-    {
-      id: 2,
-      type: "Percentage",
-      amount: "5%",
-      offText: "OFF",
-      minSpend: 50,
-      category: "Electronics only",
-    },
-  ];
 
   const featuredBanners = [
     {
@@ -58,7 +41,7 @@ const StorePage = () => {
     {
       id: 3,
       title: "Smart Wearables",
-      subtitle: "From $99",
+      subtitle: "Mulai dari Rp1.500.000",
       image:
         "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1999&auto=format&fit=crop",
     },
@@ -68,8 +51,8 @@ const StorePage = () => {
     {
       id: 1,
       name: "Premium Wireless Noise-Cancelling Headphones Pro",
-      price: 129.0,
-      oldPrice: 199.0,
+      price: 1935000,
+      oldPrice: 2985000,
       rating: 4.9,
       reviews: "2.1k",
       sold: "5k+ sold",
@@ -80,7 +63,7 @@ const StorePage = () => {
     {
       id: 2,
       name: "X-Series Smartphone 5G 128GB - Midnight Black",
-      price: 499.0,
+      price: 7485000,
       rating: 4.8,
       reviews: "890",
       sold: "1.2k sold",
@@ -90,8 +73,8 @@ const StorePage = () => {
     {
       id: 3,
       name: "Velocity Run Max Sneakers - Crimson Red Edition",
-      price: 85.5,
-      oldPrice: 95.0,
+      price: 1282500,
+      oldPrice: 1425000,
       rating: 4.7,
       sold: "800 sold",
       image:
@@ -101,7 +84,7 @@ const StorePage = () => {
     {
       id: 4,
       name: "MechKeys K80 TKL Mechanical Gaming Keyboard",
-      price: 65.0,
+      price: 975000,
       rating: 4.9,
       sold: "3.4k sold",
       image:
@@ -110,7 +93,7 @@ const StorePage = () => {
     {
       id: 5,
       name: 'UltraWide 34" Curved Gaming Monitor 144Hz',
-      price: 349.0,
+      price: 5235000,
       rating: 4.6,
       sold: "420 sold",
       image:
@@ -127,7 +110,7 @@ const StorePage = () => {
           <div className="flex justify-end gap-6 py-2 text-xs font-medium text-slate-500 border-b border-slate-50">
             <button className="hover:text-[#00aa5b]">Flash Sale</button>
             <button className="hover:text-[#00aa5b]">Global</button>
-            <button className="hover:text-[#00aa5b]">Vouchers</button>
+
             <button className="hover:text-[#00aa5b]">Help</button>
           </div>
 
@@ -236,7 +219,7 @@ const StorePage = () => {
 
             {/* Store Navigation */}
             <nav className="flex gap-10 border-t border-slate-100 pt-6">
-              {["Home", "All Products", "Categories", "Vouchers"].map((tab) => (
+              {["Home", "All Products", "Categories"].map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
@@ -306,37 +289,7 @@ const StorePage = () => {
               </div>
             </section>
 
-            {/* Vouchers Section */}
-            <section className="bg-emerald-50/50 rounded-3xl p-8 border border-dashed border-[#00aa5b]/30">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                {vouchers.map((v) => (
-                  <div
-                    key={v.id}
-                    className="bg-white border border-slate-100 rounded-2xl overflow-hidden flex shadow-sm"
-                  >
-                    <div className="bg-[#00aa5b] w-20 flex flex-col items-center justify-center text-white p-3">
-                      <span className="text-lg font-black">{v.amount}</span>
-                      <span className="text-[10px] font-bold uppercase">
-                        {v.offText}
-                      </span>
-                    </div>
-                    <div className="flex-grow p-4 flex flex-col justify-between items-start">
-                      <div>
-                        <p className="text-[10px] font-bold text-slate-400 mb-1">
-                          Min. Spend ${v.minSpend}
-                        </p>
-                        <p className="text-xs font-black text-slate-700 leading-tight">
-                          {v.category ? v.category : `Valid till ${v.expiry}`}
-                        </p>
-                      </div>
-                      <button className="text-[10px] font-black text-[#00aa5b] hover:underline uppercase tracking-wider">
-                        Claim
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
+
 
             {/* Top Selling Grid */}
             <section>
@@ -379,11 +332,11 @@ const StorePage = () => {
                       <div className="mt-auto">
                         <div className="flex items-baseline gap-2 mb-2">
                           <span className="text-sm font-black text-[#00aa5b]">
-                            ${product.price.toFixed(2)}
+                            {formatRupiah(product.price)}
                           </span>
                           {product.oldPrice && (
                             <span className="text-[10px] text-slate-400 line-through">
-                              ${product.oldPrice.toFixed(2)}
+                              {formatRupiah(product.oldPrice)}
                             </span>
                           )}
                         </div>

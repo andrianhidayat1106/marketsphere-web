@@ -1,10 +1,13 @@
-import Navbar from "../../../components/layout/Navbar.jsx";
 import Security from "./component/Security.jsx";
 import ProfileInfo from "./component/ProfileInfo.jsx";
 import SavedAddress from "./component/SavedAddress.jsx";
-import Copyright from "../../../components/layout/Copyright.jsx";
 import RecentOrders from "./component/RecentOrders.jsx";
 
+/**
+ * ProfilePage
+ *
+ * Navbar & Footer sudah di-handle oleh MainLayout.
+ */
 const ProfilePage = () => {
   const addresses = [
     {
@@ -29,7 +32,7 @@ const ProfilePage = () => {
     {
       id: "ORD-1092348",
       name: "Sony WH-1000XM5 Wireless Noise Cancelling Headphones",
-      price: "$349.00",
+      price: "Rp5.235.000",
       date: "2 days ago",
       status: "SHIPPED",
       image:
@@ -38,7 +41,7 @@ const ProfilePage = () => {
     {
       id: "ORD-1092110",
       name: "Minimalist Smartwatch Series 8",
-      price: "$199.00",
+      price: "Rp2.985.000",
       date: "1 week ago",
       status: "DELIVERED",
       image:
@@ -47,44 +50,28 @@ const ProfilePage = () => {
   ];
 
   return (
-    <>
-      <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
-        {/* Navigation Bar */}
-        <Navbar />
-
-        <main className="max-w-7xl mx-auto px-4 lg:px-8 py-10">
-          <div className="flex gap-8">
-            {/* Right Content Area */}
-            <div className="flex-grow space-y-8">
-              <div className="flex flex-col gap-1 mb-2">
-                <h1 className="text-3xl font-black text-slate-900 tracking-tight">
-                  My Account
-                </h1>
-                <p className="text-slate-500 font-medium">
-                  Manage your personal information and security settings.
-                </p>
-              </div>
-
-              {/* Profile & Security Grid */}
-              <div className="grid grid-cols-12 gap-8">
-                {/* Personal Profile Card */}
-                <ProfileInfo />
-                {/* Security Card */}
-                <Security />
-              </div>
-
-              {/* Saved Addresses Section */}
-              <SavedAddress addresses={addresses} />
-              {/* Recent Orders Section */}
-              <RecentOrders recentOrders={recentOrders} />
-            </div>
+    <main className="max-w-7xl mx-auto px-4 lg:px-8 py-10">
+      <div className="flex gap-8">
+        <div className="flex-grow space-y-8">
+          <div className="flex flex-col gap-1 mb-2">
+            <h1 className="text-3xl font-black text-slate-900 tracking-tight">
+              My Account
+            </h1>
+            <p className="text-slate-500 font-medium">
+              Manage your personal information and security settings.
+            </p>
           </div>
-        </main>
 
-        {/* Footer */}
+          <div className="grid grid-cols-12 gap-8">
+            <ProfileInfo />
+            <Security />
+          </div>
+
+          <SavedAddress addresses={addresses} />
+          <RecentOrders recentOrders={recentOrders} />
+        </div>
       </div>
-      <Copyright />
-    </>
+    </main>
   );
 };
 

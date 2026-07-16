@@ -13,31 +13,7 @@ import {
  */
 const StoreRegisterSuccessPage = () => {
   return (
-    <div className="min-h-screen bg-slate-50 font-sans text-slate-900 flex flex-col">
-      {/* Navigation Header */}
-      <header className="bg-white border-b border-slate-100 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 lg:px-8 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-2 cursor-pointer">
-            <div className="w-8 h-8 bg-[#00aa5b] rounded-lg flex items-center justify-center text-white font-black text-xl">
-              M
-            </div>
-            <span className="text-xl font-black tracking-tight text-[#00aa5b]">
-              MarketSphere
-            </span>
-          </div>
-          <nav className="flex items-center gap-8 text-sm font-bold text-slate-500">
-            <button className="hover:text-[#00aa5b] transition-colors">
-              Benefits
-            </button>
-            <button className="hover:text-[#00aa5b] transition-colors">
-              Pricing
-            </button>
-            <button className="hover:text-[#00aa5b] transition-colors text-[#00aa5b]">
-              Help Center
-            </button>
-          </nav>
-        </div>
-      </header>
+    <>
 
       {/* Main Content */}
       <main className="flex-grow flex items-center justify-center p-6 py-16">
@@ -99,33 +75,7 @@ const StoreRegisterSuccessPage = () => {
         </div>
       </main>
 
-      {/* Footer Branding */}
-      <footer className="bg-white border-t border-slate-100 py-12">
-        <div className="max-w-7xl mx-auto px-4 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="flex flex-col items-center md:items-start gap-2">
-              <h4 className="font-black text-lg text-slate-900">
-                MarketSphere Seller Center
-              </h4>
-              <p className="text-xs text-slate-400 font-medium">
-                © 2024 MarketSphere Seller Center. All rights reserved.
-              </p>
-            </div>
-            <div className="flex flex-wrap justify-center gap-8 text-sm font-bold text-slate-500">
-              <button className="hover:text-[#00aa5b] transition-colors">
-                Privacy Policy
-              </button>
-              <button className="hover:text-[#00aa5b] transition-colors">
-                Terms of Service
-              </button>
-              <button className="hover:text-[#00aa5b] transition-colors">
-                Help Center
-              </button>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
+    </>
   );
 };
 

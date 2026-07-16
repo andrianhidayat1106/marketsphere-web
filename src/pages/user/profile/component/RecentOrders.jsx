@@ -19,7 +19,7 @@ export default function RecentOrders({ recentOrders }) {
           <h2 className="font-bold text-lg text-slate-900">Recent Orders</h2>
         </div>
         <Link
-          to={"/profile/recent-orders"}
+          to={"/profile/orders"}
           className="text-sm font-bold text-[#00aa5b] hover:underline flex items-center gap-1"
         >
           View All <ChevronRight size={16} />

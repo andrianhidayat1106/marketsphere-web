@@ -3,7 +3,7 @@ import Card from "../../../../components/common/Card.jsx";
 import { Link } from "react-router-dom";
 import Button from "../../../../components/common/Button.jsx";
 import { useState } from "react";
-import CardAddress from "./_component/CardAddress.jsx";
+import CardAddress from "./CardAddress.jsx";
 export default function SavedAddress({ addresses }) {
   const [defaultAddress, setDefaultAddress] = useState(1);
 
@@ -20,7 +20,7 @@ export default function SavedAddress({ addresses }) {
           <Button variant="blue">
             <span>Set Default</span>
           </Button>
-          <Link to={"/profile/form-address"}>
+          <Link to={"/profile/address/new"}>
             <Button>
               <Plus size={18} />
               <span>Add New</span>

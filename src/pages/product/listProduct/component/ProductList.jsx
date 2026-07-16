@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 
 const ProductList = ({ products, viewMode, setViewMode, formatCurrency }) => {
   return (
-    <Link to={"/product-detail"} className="col-span-9">
+    <div className="col-span-9">
       {/* Toolbar */}
       <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-4 flex items-center justify-between mb-8">
         <div className="flex items-center gap-4">
@@ -65,7 +65,8 @@ const ProductList = ({ products, viewMode, setViewMode, formatCurrency }) => {
         }`}
       >
         {products.map((product) => (
-          <div
+          <Link
+            to={`/products/${product.id}`}
             key={product.id}
             className="bg-white rounded-[2rem] overflow-hidden border border-slate-100 hover:shadow-xl transition-all group flex flex-col cursor-pointer"
           >
@@ -110,7 +111,7 @@ const ProductList = ({ products, viewMode, setViewMode, formatCurrency }) => {
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 
@@ -135,7 +136,7 @@ const ProductList = ({ products, viewMode, setViewMode, formatCurrency }) => {
           <ChevronRight size={18} />
         </button>
       </div>
-    </Link>
+    </div>
   );
 };
 

@@ -32,7 +32,7 @@ export default function Categories() {
           return (
             <Link
               key={category.id}
-              to={`/product-list`}
+              to={`/products?category=${category.id}`}
               className="flex flex-col items-center gap-3 group text-center"
             >
               <div className="w-14 h-14 bg-slate-50 rounded-2xl flex items-center justify-center text-slate-500 group-hover:bg-[#00aa5b]/10 group-hover:text-[#00aa5b] transition-all group-hover:scale-110">

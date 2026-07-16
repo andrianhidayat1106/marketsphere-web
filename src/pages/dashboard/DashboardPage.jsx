@@ -33,7 +33,7 @@ const DashboardPage = () => {
   const metrics = [
     {
       label: "Total Revenue",
-      value: "$2.4M",
+      value: "Rp36 Miliar",
       growth: "+12.5%",
       icon: <Wallet className="w-6 h-6 text-emerald-600" />,
       trend: "up",
@@ -65,28 +65,28 @@ const DashboardPage = () => {
     {
       id: "#TRX-98231",
       seller: "TechHaven",
-      amount: "$1,249.00",
+      amount: "Rp18.735.000",
       status: "Completed",
       date: "Oct 24, 14:32",
     },
     {
       id: "#TRX-98230",
       seller: "Luxe Apparel",
-      amount: "$340.50",
+      amount: "Rp5.107.500",
       status: "Processing",
       date: "Oct 24, 13:15",
     },
     {
       id: "#TRX-98229",
       seller: "HomeGoods Direct",
-      amount: "$89.99",
+      amount: "Rp1.349.850",
       status: "Failed",
       date: "Oct 24, 11:05",
     },
     {
       id: "#TRX-98228",
       seller: "ElectroWorld",
-      amount: "$4,500.00",
+      amount: "Rp67.500.000",
       status: "Completed",
       date: "Oct 24, 09:45",
     },

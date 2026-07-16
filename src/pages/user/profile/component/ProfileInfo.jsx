@@ -15,7 +15,7 @@ export default function ProfileInfo() {
     setIsEditingProfile(true);
   };
 
-  console.log(isEditingProfile);
+
 
   return (
     <Card>

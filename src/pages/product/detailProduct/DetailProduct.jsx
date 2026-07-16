@@ -1,26 +1,22 @@
-import React, { useState } from "react";
-import {
-  Search,
-  ShoppingCart,
-  Bell,
-  MessageSquare,
-  ChevronRight,
-} from "lucide-react";
+import { useState } from "react";
 import ImageGallery from "./component/ImageGallery.jsx";
 import ProductInfoActions from "./component/ProductInfoActions.jsx";
 import ProductTabs from "./component/ProductTabs.jsx";
-import Navbar from "../../../components/layout/Navbar.jsx";
-import Footer from "../../../components/layout/Footer.jsx";
+import { formatRupiah } from "../../../utils/formatCurrency.js";
 
-const DetailProduct = () => {
+/**
+ * DetailProductPage
+ * Navbar & Footer sudah di-handle oleh MainLayout.
+ */
+const DetailProductPage = () => {
   const [selectedColor, setSelectedColor] = useState("Matte Black");
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState("Product Description");
 
   const product = {
     name: "AuraSound Pro Active Noise Cancelling Wireless Headphones - 40h Battery, Hi-Res Audio",
-    price: 249.0,
-    oldPrice: 349.0,
+    price: 3735000,
+    oldPrice: 5235000,
     discount: "-28% OFF",
     rating: 4.8,
     reviews: "1.2k",
@@ -37,44 +33,22 @@ const DetailProduct = () => {
     ],
   };
 
-  const formatCurrency = (amount) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-    }).format(amount);
-  };
-
   return (
-    <>
-      <div className="min-h-screen bg-slate-50 font-sans text-slate-900 pb-20">
-        {/* Top Navigation */}
-        <Navbar />
-
-        <main className="max-w-7xl mx-auto px-4 lg:px-8 py-4">
-          <div className="grid grid-cols-12 gap-8 items-start">
-            {/* 1. Image Gallery Component */}
-            <ImageGallery images={product.images} productName={product.name} />
-
-            {/* 2. Product Info & Action Card Component */}
-            <ProductInfoActions
-              product={product}
-              selectedColor={selectedColor}
-              setSelectedColor={setSelectedColor}
-              quantity={quantity}
-              setQuantity={setQuantity}
-              formatCurrency={formatCurrency}
-            />
-          </div>
-
-          {/* 3. Product Tabs Description Component */}
-          <ProductTabs activeTab={activeTab} setActiveTab={setActiveTab} />
-        </main>
-
-        {/* Footer */}
+    <main className="max-w-7xl mx-auto px-4 lg:px-8 py-4 pb-20">
+      <div className="grid grid-cols-12 gap-8 items-start">
+        <ImageGallery images={product.images} productName={product.name} />
+        <ProductInfoActions
+          product={product}
+          selectedColor={selectedColor}
+          setSelectedColor={setSelectedColor}
+          quantity={quantity}
+          setQuantity={setQuantity}
+          formatCurrency={formatRupiah}
+        />
       </div>
-      <Footer />
-    </>
+      <ProductTabs activeTab={activeTab} setActiveTab={setActiveTab} />
+    </main>
   );
 };
 
-export default DetailProduct;
+export default DetailProductPage;

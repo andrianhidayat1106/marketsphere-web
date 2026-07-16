@@ -1,12 +1,9 @@
-import { ShieldCheck } from "lucide-react";
-import Navbar from "../../../components/layout/Navbar.jsx";
-import Copyright from "../../../components/layout/Copyright.jsx";
-import Card from "../../../components/common/Card.jsx";
-import InputField from "../../../components/common/InputField.jsx";
-import Button from "../../../components/common/Button.jsx";
-import { Link } from "react-router-dom";
 import RecentOrders from "./component/RecentOrders.jsx";
 
+/**
+ * RecentOrdersPage
+ * Navbar & Footer sudah di-handle oleh MainLayout.
+ */
 export default function RecentOrdersPage() {
   const recentOrders = [
     {
@@ -27,7 +24,6 @@ export default function RecentOrdersPage() {
       image:
         "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1999&auto=format&fit=crop",
     },
-    // --- 10 DATA DUMMY TAMBAHAN ---
     {
       id: "ORD-1092551",
       name: "Mechanical Gaming Keyboard RGB",
@@ -121,32 +117,21 @@ export default function RecentOrdersPage() {
   ];
 
   return (
-    <>
-      <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
-        {/* Navigation Bar */}
-        <Navbar />
-
-        <main className="max-w-7xl mx-auto px-4 lg:px-8 py-10">
-          <div className="flex gap-8">
-            {/* Right Content Area */}
-            <div className="flex-grow space-y-8">
-              <div className="flex flex-col gap-1 mb-2">
-                <h1 className="text-3xl font-black text-slate-900 tracking-tight">
-                  Recent Orders
-                </h1>
-                <p className="text-slate-500 font-medium">
-                  Track and manage your recent purchases and order history.
-                </p>
-              </div>
-
-              <RecentOrders recentOrders={recentOrders}></RecentOrders>
-            </div>
+    <main className="max-w-7xl mx-auto px-4 lg:px-8 py-10">
+      <div className="flex gap-8">
+        <div className="flex-grow space-y-8">
+          <div className="flex flex-col gap-1 mb-2">
+            <h1 className="text-3xl font-black text-slate-900 tracking-tight">
+              Recent Orders
+            </h1>
+            <p className="text-slate-500 font-medium">
+              Track and manage your recent purchases and order history.
+            </p>
           </div>
-        </main>
 
-        {/* Footer */}
+          <RecentOrders recentOrders={recentOrders} />
+        </div>
       </div>
-      <Copyright />
-    </>
+    </main>
   );
 }

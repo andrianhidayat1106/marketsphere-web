@@ -7,7 +7,7 @@ import Button from "../../components/common/Button.jsx";
 
 export default function RegisterPage() {
   return (
-    <div className="min-h-screen w-full flex bg-slate-50 font-sans">
+    <>
       {/* Left Side: Brand Visuals (Consistent with Login) */}
 
       <BrandSection
@@ -140,6 +140,6 @@ export default function RegisterPage() {
           </p>
         </div>
       </AuthCard>
-    </div>
+    </>
   );
 }

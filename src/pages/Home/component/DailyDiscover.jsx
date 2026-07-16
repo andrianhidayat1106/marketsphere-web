@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function DailyDiscover({ dailyDiscover }) {
   return (
@@ -12,7 +13,8 @@ export default function DailyDiscover({ dailyDiscover }) {
 
       <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
         {dailyDiscover.map((product) => (
-          <div
+          <Link
+            to={`/products/${product.id}`}
             key={product.id}
             className="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-lg transition-all group flex flex-col"
           >
@@ -51,14 +53,17 @@ export default function DailyDiscover({ dailyDiscover }) {
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 
       <div className="mt-12 flex justify-center">
-        <button className="px-10 py-3 border-2 border-[#00aa5b] text-[#00aa5b] font-bold rounded-xl hover:bg-[#00aa5b] hover:text-white transition-all active:scale-95">
+        <Link
+          to="/products"
+          className="px-10 py-3 border-2 border-[#00aa5b] text-[#00aa5b] font-bold rounded-xl hover:bg-[#00aa5b] hover:text-white transition-all active:scale-95"
+        >
           Load More
-        </button>
+        </Link>
       </div>
     </section>
   );

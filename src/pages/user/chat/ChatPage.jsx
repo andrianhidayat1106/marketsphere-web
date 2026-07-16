@@ -1,28 +1,22 @@
-import React, { useState } from "react";
-import {
-  Search,
-  MoreVertical,
-  Plus,
-  ImageIcon,
-  Smile,
-  Send,
-  Store,
-  CheckCircle2,
-  ChevronLeft,
-  ArrowLeft, // Ditambahkan untuk ikon tombol kembali di desktop
-} from "lucide-react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ContactSidebar from "./component/ContactSidebar.jsx";
 import ChatHeader from "./component/ChatHeader.jsx";
 import MessageArea from "./component/MessageArea.jsx";
-import Footer from "../../../components/layout/Footer.jsx";
-import ChatFooter from "./component/ChatFooter.jsx";
+import { ImageIcon, Smile, Send } from "lucide-react";
 
 /**
- * MarketSphere Chat Component
- * Built with React and Tailwind CSS (JSX Version).
+ * ChatPage
+ *
+ * Full-screen layout — tidak pakai MainLayout.
+ * Punya navbar/sidebar sendiri karena desain chat berbeda.
+ *
+ * BUG FIX: props ChatFooter sebelumnya salah (messageInput dipakai
+ * sebagai setter & handler). Sekarang input area di-inline di sini
+ * karena ChatFooter terlalu kecil untuk jadi component terpisah.
  */
-
 const ChatPage = () => {
+  const navigate = useNavigate();
   const [activeContactId, setActiveContactId] = useState(1);
   const [messageInput, setMessageInput] = useState("");
 
@@ -63,7 +57,7 @@ const ChatPage = () => {
       isProduct: true,
       productData: {
         name: "Premium Noise Cancelling Wireless Earbuds Pro 2",
-        price: "$129.00",
+        price: "Rp1.935.000",
         image:
           "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?q=80&w=2070&auto=format&fit=crop",
       },
@@ -96,9 +90,8 @@ const ChatPage = () => {
     setMessageInput("");
   };
 
-  // Fungsi navigasi kembali ke menu utama "/"
   const handleBackToMenu = () => {
-    window.location.href = "/";
+    navigate("/");
   };
 
   const activeContact = contacts.find((c) => c.id === activeContactId);
@@ -112,19 +105,48 @@ const ChatPage = () => {
         setActiveContactId={setActiveContactId}
         handleBackToMenu={handleBackToMenu}
       />
+
       {/* Chat Window */}
       <main className="flex-grow flex flex-col bg-white overflow-hidden">
         {/* Chat Header */}
         <ChatHeader activeContact={activeContact} />
+
         {/* Messages Area */}
         <MessageArea messages={messages} activeContact={activeContact} />
 
-        {/* Input Area */}
-        <ChatFooter
-          messageInput={messageInput}
-          setMessageInput={messageInput}
-          handleSendMessage={messageInput}
-        />
+        {/* Input Area — inline karena terlalu kecil untuk component terpisah */}
+        <footer className="p-6 bg-white border-t border-slate-100">
+          <form
+            className="flex items-center gap-3"
+            onSubmit={handleSendMessage}
+          >
+            <button
+              type="button"
+              className="p-2.5 text-slate-400 hover:text-[#00aa5b] transition-colors"
+            >
+              <ImageIcon size={22} />
+            </button>
+            <button
+              type="button"
+              className="p-2.5 text-slate-400 hover:text-[#00aa5b] transition-colors"
+            >
+              <Smile size={22} />
+            </button>
+            <input
+              type="text"
+              value={messageInput}
+              onChange={(e) => setMessageInput(e.target.value)}
+              placeholder="Type a message..."
+              className="flex-grow py-3 px-5 bg-slate-50 border border-slate-100 rounded-2xl outline-none focus:bg-white focus:border-[#00aa5b]/20 focus:ring-2 focus:ring-[#00aa5b]/5 transition-all text-sm font-medium"
+            />
+            <button
+              type="submit"
+              className="p-3 bg-[#00aa5b] text-white rounded-xl hover:bg-[#008f4d] transition-all shadow-lg shadow-[#00aa5b]/20 active:scale-95"
+            >
+              <Send size={20} />
+            </button>
+          </form>
+        </footer>
       </main>
     </div>
   );

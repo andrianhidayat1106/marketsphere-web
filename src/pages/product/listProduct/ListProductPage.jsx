@@ -1,19 +1,14 @@
-import React, { useState } from "react";
-import {
-  Search,
-  ShoppingCart,
-  Bell,
-  MessageSquare,
-  ChevronRight,
-} from "lucide-react";
+import { useState } from "react";
 import FilterSidebar from "./component/FilterSidebar.jsx";
 import ProductList from "./component/ProductList.jsx";
-import Navbar from "../../../components/layout/Navbar.jsx";
-import Footer from "../../../components/layout/Footer.jsx";
+import { formatRupiah } from "../../../utils/formatCurrency.js";
 
+/**
+ * ListProductPage
+ * Navbar & Footer sudah di-handle oleh MainLayout.
+ */
 const ListProductPage = () => {
   const [viewMode, setViewMode] = useState("grid");
-  const [activeCategory, setActiveCategory] = useState("Electronics");
 
   const categories = [
     { name: "Electronics", count: 1452, active: true },
@@ -29,7 +24,7 @@ const ListProductPage = () => {
     {
       id: 1,
       name: "TechPro X200 Smartphone 5G 128GB - Global ROM Midnight Black",
-      price: 499.0,
+      price: 7485000,
       rating: 4.9,
       reviews: "1.2k",
       image:
@@ -41,7 +36,7 @@ const ListProductPage = () => {
     {
       id: 2,
       name: "Zenith Noise Cancelling Wireless Headphones - Carbon Grey",
-      price: 129.5,
+      price: 1942500,
       rating: 4.7,
       reviews: "840",
       image:
@@ -51,7 +46,7 @@ const ListProductPage = () => {
     {
       id: 3,
       name: 'Quantum Book Pro 14" Thin & Light Laptop 16GB RAM',
-      price: 899.0,
+      price: 13485000,
       rating: 4.9,
       reviews: "2.1k",
       image:
@@ -62,7 +57,7 @@ const ListProductPage = () => {
     {
       id: 4,
       name: "Nexa Watch Series 5 Smartwatch Fitness Tracker",
-      price: 85.0,
+      price: 1275000,
       rating: 4.6,
       reviews: "450",
       image:
@@ -71,37 +66,18 @@ const ListProductPage = () => {
     },
   ];
 
-  const formatCurrency = (amount) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-    }).format(amount);
-  };
-
   return (
-    <>
-      <div className="min-h-screen bg-slate-50 font-sans text-slate-900 pb-20">
-        {/* Top Navigation */}
-        <Navbar />
-        {/* Breadcrumbs */}
-
-        <main className="max-w-7xl mx-auto px-4 lg:px-8 py-4">
-          <div className="grid grid-cols-12 gap-8">
-            {/* 1. Sidebar Component */}
-            <FilterSidebar categories={categories} />
-
-            {/* 2. Product List & Grid Component */}
-            <ProductList
-              products={products}
-              viewMode={viewMode}
-              setViewMode={setViewMode}
-              formatCurrency={formatCurrency}
-            />
-          </div>
-        </main>
+    <main className="max-w-7xl mx-auto px-4 lg:px-8 py-4 pb-20">
+      <div className="grid grid-cols-12 gap-8">
+        <FilterSidebar categories={categories} />
+        <ProductList
+          products={products}
+          viewMode={viewMode}
+          setViewMode={setViewMode}
+          formatCurrency={formatRupiah}
+        />
       </div>
-      <Footer></Footer>
-    </>
+    </main>
   );
 };
 

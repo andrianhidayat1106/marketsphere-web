@@ -10,7 +10,7 @@ function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="min-h-screen w-full flex bg-slate-50 font-sans">
+    <>
       {/* Left Side: Brand Visuals (Hidden on small screens) */}
       <BrandSection
         title={
@@ -163,7 +163,7 @@ function LoginPage() {
           </p>
         </div>
       </AuthCard>
-    </div>
+    </>
   );
 }
 
