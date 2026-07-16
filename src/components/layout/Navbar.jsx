@@ -24,9 +24,12 @@ export default function Navbar() {
               placeholder="Search products, brands and categories..."
               className="w-full pl-4 pr-12 py-2.5 bg-slate-100 border-none rounded-lg focus:ring-2 focus:ring-[#00aa5b]/20 outline-none transition-all text-sm"
             />
-            <button className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 bg-[#00aa5b] text-white rounded-md hover:bg-[#008f4d] transition-colors">
+            <Link
+              to={"/product-list"}
+              className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 bg-[#00aa5b] text-white rounded-md hover:bg-[#008f4d] transition-colors"
+            >
               <Search size={18} />
-            </button>
+            </Link>
           </div>
 
           <div className="flex items-center gap-5 text-slate-600">

@@ -11,6 +11,16 @@ import RecentOrdersPage from "../pages/user/profile/RecentOrdersPage.jsx";
 import ChatPage from "../pages/user/chat/ChatPage.jsx";
 import NotificationPage from "../pages/user/notification/NotificationPage.jsx";
 import CartPage from "../pages/cart/CartPage.jsx";
+import ListProductPage from "../pages/product/listProduct/ListProductPage.jsx";
+import DetailProduct from "../pages/product/detailProduct/DetailProduct.jsx";
+import FlashSalePage from "../pages/home/flash-sale/FlashSalePage.jsx";
+import PaymentSuccessPage from "../pages/payment/PaymentSuccessPage.jsx";
+import PaymentPage from "../pages/payment/PaymentPage.jsx";
+import OrderTrackingPage from "../pages/payment/OrderTrackingPage.jsx";
+import StoreRegisterPage from "../pages/store/StoreRegisterPage.jsx";
+import StoreRegisterSuccessPage from "../pages/store/StoreRegisterSuccessPage.jsx";
+import StorePage from "../pages/store/StorePage.jsx";
+import StoreIdentityVerification from "../pages/store/StoreIdentityVerification.jsx";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +66,46 @@ const router = createBrowserRouter([
   {
     path: "/cart",
     element: <CartPage />,
+  },
+  {
+    path: "/product-list",
+    element: <ListProductPage />,
+  },
+  {
+    path: "/product-detail",
+    element: <DetailProduct />,
+  },
+  {
+    path: "/flash-sale",
+    element: <FlashSalePage />,
+  },
+  {
+    path: "/order-tracking",
+    element: <OrderTrackingPage />,
+  },
+  {
+    path: "/payment",
+    element: <PaymentPage />,
+  },
+  {
+    path: "/payment-success",
+    element: <PaymentSuccessPage />,
+  },
+  {
+    path: "/store/register",
+    element: <StoreRegisterPage />,
+  },
+  {
+    path: "/store/register/success",
+    element: <StoreRegisterSuccessPage />,
+  },
+  {
+    path: "/store",
+    element: <StorePage />,
+  },
+  {
+    path: "/store/register/ientity-verification",
+    element: <StoreIdentityVerification />,
   },
 ]);
 
